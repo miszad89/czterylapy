@@ -40,7 +40,6 @@
   background-color: var(--light);
   position: absolute;
   left: 0;
-  transition: transform 0.2s 0.2s ease-in-out;
 }
 
 .hamburger__inner {
@@ -57,16 +56,52 @@
   top: 10px;
 }
 
+@keyframes animateMiddle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
 .hamburger--active .hamburger__inner {
-  background-color: transparent;
+  animation: animateMiddle 0.2s 0.2s ease-in-out both;
+}
+
+@keyframes animateTop {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
 }
 
 .hamburger--active .hamburger__inner:before {
-  transform: translateY(10px) rotate(45deg);
+  animation: animateTop 0.2s 0.2s ease-in-out both;
+}
+
+@keyframes animateBottom {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-10px) rotate(-90deg);
+  }
 }
 
 .hamburger--active .hamburger__inner:after {
-  transform: translateY(-10px) rotate(-45deg);
+  animation: animateBottom 0.2s 0.2s ease-in-out both;
 }
 
 .menu {
@@ -86,7 +121,8 @@
 }
 
 .menu__item {
-  margin: 1.5rem;
+  border-top: 1px solid var(--light);
+  padding: 1.5rem;
 }
 
 .menu__link {
@@ -101,13 +137,89 @@
 }
 
 .hero__img {
-    width: 100vw;
+  width: 100%;
 }
 
-.main {
+.main__title--unvisible {
+  display: none;
+}
+
+.article {
   color: var(--dark);
+  background-color: var(--light);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.about {
-  background-color: var(--light);
+.article--alt-bg {
+  background-color: var(--light-alt);
+}
+
+.article__title {
+  margin-top: 2rem;
+}
+
+.article__text {
+  line-height: 1.5;
+  margin: 2rem;
+  max-width: 600px;
+  text-align: justify;
+}
+
+.article__text--center {
+  text-align: center;
+}
+
+.article__text--left {
+  text-align: left;
+}
+
+.article__paragraph {
+  margin-bottom: 2rem;
+}
+
+.article__paragraph--underlined {
+  text-decoration: underline;
+}
+
+.article__photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article__photo {
+  margin: 1rem;
+  width: 15rem;
+}
+
+.article__img {
+  width: 100%;
+}
+
+.article__figcaption {
+  text-align: center;
+}
+
+.article__map {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.article__map-inner {
+  height: 210px;
+  width: 280px;
+}
+
+.article__sublist-item {
+  margin: 0 0 0 1rem;
+}
+
+.footer {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 2rem;
+  text-align: center;
 }
